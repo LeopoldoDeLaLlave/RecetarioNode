@@ -1,9 +1,10 @@
 //Archivo principal para arrancar la aplicación
 
-//require('dotenv').config();
+require('dotenv').config();
 
-require('./database');
+
 const app = require('./server');
+require('./database');
 
 
 

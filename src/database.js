@@ -1,8 +1,9 @@
 //Conexión de la base de datos(Mongoose)
 const mongoose = require('mongoose');
-
+require('dotenv').config();
 //Connect to Mongodb
-const dbURI = "mongodb+srv://javi:1234javi@nodetuts.uqpj3.mongodb.net/recetasApp?retryWrites=true&w=majority";
+const dbURI = process.env.DBURI;;
+console.log(process.env.DBURI);
 
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
