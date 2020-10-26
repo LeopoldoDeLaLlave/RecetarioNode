@@ -3,7 +3,7 @@ const indexCtlr = {};
 const Receta = require('../models/Receta');
 
 
-indexCtlr.renderIndex = (req, res)=>{
+indexCtlr.renderIndex = (req, res) => {
     res.render('index');
 };
 
@@ -13,8 +13,13 @@ indexCtlr.renderRecetas = async (req, res) => {
 };
 
 indexCtlr.renderReceta = async (req, res) => {
-    const receta = await Receta.find({ _id: req.params.id }).lean();
-    res.render('receta', { receta });
+    try {
+        const receta = await Receta.findById(req.params.id);
+        res.render('receta', { receta });
+    } catch (error) {
+        console.log(error);
+    }
+
 };
 
 
