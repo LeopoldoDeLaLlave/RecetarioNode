@@ -1,8 +1,11 @@
 const express = require('express');
 const path = require('path');
 
+
 //Inicializaciones
 const app = express();
+
+
 
 //settings
 app.set('view engine', 'ejs');
@@ -12,6 +15,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 //Middlewares
 
+app.use(express.urlencoded({extended:false}));
 
 //Routes
 app.use(require('./routes/index.routes'));

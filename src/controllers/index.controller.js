@@ -18,7 +18,7 @@ indexCtlr.renderRecetas = async (req, res) => {
 indexCtlr.renderReceta = async (req, res) => {
     try {
         const receta = await Receta.findById(req.params.id);
-        res.render('receta', { receta });
+        res.render('receta', { receta }); 
     } catch (error) {
         console.log(error);
     }
@@ -29,6 +29,19 @@ indexCtlr.renderReceta = async (req, res) => {
 //Muestra el formulario para subir recetas
 indexCtlr.renderSubir = (req, res) => {
     res.render('recetaForm');
+};
+
+indexCtlr.createRecipe =async(req, res) => {
+    const {nombre, nacionalidad, ingredientes, preparacion, tiempo} = req.body;
+    const newReceta = new Receta({
+        nombre, 
+        nacionalidad, 
+        ingredientes,  
+        preparacion, 
+        tiempo
+    });
+    await newReceta.save();
+    res.redirect('/')
 };
 
 
