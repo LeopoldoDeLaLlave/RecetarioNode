@@ -16,7 +16,7 @@
     <%- include('./partials/navbar') %>
     <div class="container">
 
-        
+
         <% for (var i =0; i <recetas.length;  i++ ){ %>
         <div class="row">
             <div class="col-6">
@@ -27,6 +27,9 @@
                         </a>
                         <h6 class="card-subtitle mb-2 text-muted"><%= recetas[i].tiempo %></h6>
                         <p class="card-text"><%= (recetas[i].preparacion.substring(0, 200) + "...")  %></p>
+                        <form action="/receta/delete/<%= recetas[i]._id %>" method="POST">
+                            <button type="submit" class="btn btn-danger btn-block btn-sm btnborrar" id="<%= recetas[i]._id  %>">Delete</button>
+                        </form>
                     </div>
 
                 </div>
@@ -42,6 +45,9 @@
                         </a>
                         <h6 class="card-subtitle mb-2 text-muted"><%= recetas[i].tiempo %></h6>
                         <p class="card-text"><%= (recetas[i].preparacion.substring(0, 200) + "...")  %></p>
+                        <form action="/receta/delete/<%= recetas[i]._id %>" method="POST">
+                            <button type="submit" class="btn btn-danger btn-block btn-sm btnborrar" id="<%= recetas[i]._id  %>">Delete</button>
+                        </form>
                     </div>
 
                 </div>
@@ -64,6 +70,23 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+
+    <script>
+        // $(document).ready(function () {
+        //     $('#btnborrar').on("click", function (e) {
+        //         var id = $(this).attr('id');
+        //         $.ajax({
+        //             url: '/receta/delete/'+id,
+        //             type: 'DELETE',
+        //             data: { "id": id },
+        //             dataType: 'json',
+        //             success: function (data) {
+        //                 console.log("Eliminado correctamente");
+        //             }
+        //         });
+        //     });
+        // });
+    </script>
 </body>
 
 </html>

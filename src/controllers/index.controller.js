@@ -44,5 +44,9 @@ indexCtlr.createRecipe =async(req, res) => {
     res.redirect('/')
 };
 
+indexCtlr.deleteRecipe = async (req, res) => {
+    await Receta.findByIdAndDelete(req.params.id);
+    res.redirect('/');
+};
 
 module.exports = indexCtlr;
