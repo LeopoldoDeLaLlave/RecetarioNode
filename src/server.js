@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
 
 
 //Inicializaciones
@@ -16,6 +17,7 @@ app.set('views', path.join(__dirname, 'views'));
 //Middlewares
 
 app.use(express.urlencoded({extended:false}));
+app.use(methodOverride('_method'));
 
 //Routes
 app.use(require('./routes/index.routes'));

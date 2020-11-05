@@ -7,7 +7,7 @@ const {renderIndex, renderRecetas, renderReceta, renderSubir, createRecipe, dele
 router.get('/', renderIndex);
 router.get('/recetas/:nacionalidad', renderRecetas);
 router.get('/receta/:id', renderReceta);
-router.post('/receta/delete/:id', deleteRecipe);
+router.delete('/receta/delete/:id', deleteRecipe);
 router.route('/subir')
     .get(renderSubir).
     post(createRecipe);
