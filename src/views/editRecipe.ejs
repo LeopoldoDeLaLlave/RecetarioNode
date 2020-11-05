@@ -15,7 +15,8 @@
 
     <div class="container">
 
-        <form action="/subir" method="post">
+        <form action="/receta/editar/<%= receta._id%>?_method=PUT" method="POST">
+            <input type="hidden" name="_method" value="PUT">
             <div class="form-group">
                 <label for="nombre">Nombre de la receta</label>
                 <input type="text" class="form-control" name="nombre" maxlength="80" value="<%= receta.nombre  %>"
@@ -43,7 +44,7 @@
                 <label for="preparacion">Preparación</label>
                 <textarea class="form-control" name="preparacion" rows="20"><%= receta.preparacion  %></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="text-align: right;">Subir</button>
+            <button type="submit" class="btn btn-primary" style="text-align: right;">Editar</button>
         </form>
         <br><br><br>
 

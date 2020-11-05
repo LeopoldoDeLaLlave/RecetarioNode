@@ -18,7 +18,7 @@ indexCtlr.renderRecetas = async (req, res) => {
 indexCtlr.renderReceta = async (req, res) => {
     try {
         const receta = await Receta.findById(req.params.id);
-        res.render('receta', { receta }); 
+        res.render('receta', { receta });
     } catch (error) {
         console.log(error);
     }
@@ -31,13 +31,13 @@ indexCtlr.renderSubir = (req, res) => {
     res.render('recetaForm');
 };
 
-indexCtlr.createRecipe =async(req, res) => {
-    const {nombre, nacionalidad, ingredientes, preparacion, tiempo} = req.body;
+indexCtlr.createRecipe = async (req, res) => {
+    const { nombre, nacionalidad, ingredientes, preparacion, tiempo } = req.body;
     const newReceta = new Receta({
-        nombre, 
-        nacionalidad, 
-        ingredientes,  
-        preparacion, 
+        nombre,
+        nacionalidad,
+        ingredientes,
+        preparacion,
         tiempo
     });
     await newReceta.save();
@@ -54,8 +54,23 @@ indexCtlr.deleteRecipe = async (req, res) => {
 indexCtlr.renderEditRecipe = async (req, res) => {
     try {
         const receta = await Receta.findById(req.params.id);
-        res.render('editRecipe', { receta }); 
+        res.render('editRecipe', { receta });
     } catch (error) {
+        console.log(error);
+    }
+
+};
+
+
+
+indexCtlr.updateRecipe = async (req, res) => {
+    try {
+        const { nombre, nacionalidad, ingredientes, preparacion, tiempo } = req.body;
+        await Receta.findByIdAndUpdate(req.params.id, { nombre, nacionalidad, ingredientes, preparacion, tiempo });
+        //Redirigimos a la receta de la página actualizada
+        var enlace = '/receta/'+req.params.id;
+        res.redirect(enlace);
+    } catch(error){
         console.log(error);
     }
 
