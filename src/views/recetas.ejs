@@ -31,6 +31,8 @@
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
                         </form>
+                        <br>
+                        <a href="/receta/editar/<%= recetas[i]._id  %>" class="btn btn-primary btn-block btn-sm"> Editar </a>
                     </div>
 
                 </div>
@@ -51,6 +53,8 @@
                             <input type="hidden" name="_method" value="DELETE">
                             <button type="submit" class="btn btn-danger btn-block btn-sm">Delete</button>
                         </form>
+                        <br>
+                        <a href="/receta/editar/<%= recetas[i]._id  %>" class="btn btn-primary btn-block btn-sm"> Editar </a>
                     </div>
 
                 </div>
@@ -74,22 +78,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
-    <script>
-        // $(document).ready(function () {
-        //     $('#btnborrar').on("click", function (e) {
-        //         var id = $(this).attr('id');
-        //         $.ajax({
-        //             url: '/receta/delete/'+id,
-        //             type: 'DELETE',
-        //             data: { "id": id },
-        //             dataType: 'json',
-        //             success: function (data) {
-        //                 console.log("Eliminado correctamente");
-        //             }
-        //         });
-        //     });
-        // });
-    </script>
 </body>
 
 </html>

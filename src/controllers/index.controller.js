@@ -49,4 +49,16 @@ indexCtlr.deleteRecipe = async (req, res) => {
     res.redirect('/');
 };
 
+
+//Carga el form con la información de una receta para editarlo
+indexCtlr.renderEditRecipe = async (req, res) => {
+    try {
+        const receta = await Receta.findById(req.params.id);
+        res.render('editRecipe', { receta }); 
+    } catch (error) {
+        console.log(error);
+    }
+
+};
+
 module.exports = indexCtlr;
